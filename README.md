@@ -1,0 +1,1 @@
+- Exercício do JQuery: Resolução de bugs
