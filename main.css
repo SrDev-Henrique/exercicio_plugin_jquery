@@ -23,6 +23,11 @@ h2 {
     margin-bottom: 16px;
 }
 
+.carousel{
+    display: flex;
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 600px;
     margin: 0 auto;

@@ -1,43 +1,64 @@
-$('#telefone').mascara('(00) 00000-0000', {
-    placeholder: '(DDD) 12345-6789'
-})
+$(document).ready(function () {
+    $('.carousel').slick({
+        autoplay: true,
+        arrows: false
+    });
 
-$('#cpf').mascara('000.000.000-00', {
-    placeholder: '123.456.789-00'
-})
+    $('#telefone').mask('(00) 00000-0000', {
+        placeholder: '(DDD) 12345-6789'
+    });
 
-$('#cep').mascara('00000-000', {
-    placeholder: '012345-678'
-})
+    $('#cpf').mask('000.000.000-00', {
+        placeholder: '123.456.789-00'
+    });
 
-$('form').validate({
-    rules: {
-        nome: {
-            requerido: true
+    $('#cep').mask('00000-000', {
+        placeholder: '01234-567'
+    });
+
+    $('#form').validate({
+        rules: {
+            nome: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            telefone: {
+                required: true
+            },
+            endereco: {
+                required: true
+            },
+            cep: {
+                required: true
+            },
+            cpf: {
+                required: true
+            }
         },
-        email: {
-            requerido: true,
-            email: true
+
+        messages: {
+            nome: "Digite seu nome",
+            email: "Digite seu email",
+            telefone: "Digite seu telefone",
+            endereco: "Digite seu endereço",
+            cep: "Difite seu CEP",
+            cpf: "Digite seu CPF"
         },
-        telefone: {
-            requerido: true
+
+        submitHandler: function (form) {
+            alert("Sua requisição foi enviada para análise, parabéns pela aquisição!");
+            form.reset();
         },
-        endereco: {
-            requerido: true
-        },
-        cep: {
-            requerido: true
-        },
-        cpf: {
-            requerido: true
-        },
-    },
-    submitHandler: function (form) {
-        alert("Sua requisição foi enviada para análise, parabéns pela aquisição!");
-        form.reset();
-    },
-    invalidHandler: function (form, validator) {
-        alert("Por favor, preencha os campos para prosseguir com a compra!");
-    }
-})
+
+        invalidHandler: function (evento, validador) {
+            let camposInvalidos = validador.numberOfInvalids();
+            if (camposInvalidos) {
+                alert("Por favor, preencha os campos para prosseguir com a compra!");
+            }
+        }
+    });
+});
 
