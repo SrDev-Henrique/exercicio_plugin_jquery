@@ -44,7 +44,7 @@ $(document).ready(function () {
             email: "Digite seu email",
             telefone: "Digite seu telefone",
             endereco: "Digite seu endereço",
-            cep: "Difite seu CEP",
+            cep: "Digite seu CEP",
             cpf: "Digite seu CPF"
         },
 
